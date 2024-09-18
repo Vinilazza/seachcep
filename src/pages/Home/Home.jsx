@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 import { useState } from "react";
 import { PaperClipIcon } from "@heroicons/react/20/solid";
 import { toast } from "react-toastify";
-
+import "./Home.css"
 const Home = () => {
   const [cep, setCep] = useState("");
   const [results, setResults] = useState("");
@@ -11,7 +11,7 @@ const Home = () => {
     e.preventDefault();
 
     let cepAlterado = cep.replace(/[^\w\s]/gi, "");
-    console.log(cepAlterado);
+
     if (cepAlterado.length === 8) {
       const res = await fetch(`http://viacep.com.br/ws/${cepAlterado}/json/`)
         .then((res) => res.json())
@@ -21,12 +21,13 @@ const Home = () => {
       setResults(res);
       console.log(res);
     }
+
+    setCep("");
   };
   return (
     <div>
-      <div className="container mx-auto">
-        <form onSubmit={handleSubmit}>
-          <div className="flex items-center mt-5">
+      <form onSubmit={handleSubmit}>
+          <div className="flex items-center justify-center wrapper  mt-5 h-96">
             <label
               htmlFor="cep"
               className="block text-sm font-medium leading-6 text-gray-900 me-3"
@@ -39,7 +40,8 @@ const Home = () => {
                 type="text"
                 autoComplete="cep"
                 onChange={(e) => setCep(e.target.value)}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                value={cep}
+                className="block w-full rounded-md border-0 py-1.5 pl-3  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
             <button
@@ -50,6 +52,8 @@ const Home = () => {
             </button>
           </div>
         </form>
+      <div className="container mx-auto">
+        
         {results && (
           <div key={results.cep} className={styles.results}>
             <div>
