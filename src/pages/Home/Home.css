@@ -1,4 +1,8 @@
 .wrapper {
     color: #aaa;
-    background-image: url('../../img.webp');
+    background-image: url('../../img/Mapa-Mundi.jpg');
+}
+.wrap {
+    background-color: rgba(244, 244, 245, 0.90);
+
 }

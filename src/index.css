@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  background-color: #ddd;
+  background-color: #fff;
   margin: 0;
   padding: 0;
   font-family:  "Montserrat", sans-serif;
@@ -13,5 +13,5 @@ a {
   color: #000;
 }
 a:hover {
-  color: #fff;
+  color: #ddd;
 }
