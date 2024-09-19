@@ -13,7 +13,7 @@ const Home = () => {
     let cepAlterado = cep.replace(/[^\w\s]/gi, "");
 
     if (cepAlterado.length === 8) {
-      const res = await fetch(`http://viacep.com.br/ws/${cepAlterado}/json/`)
+      const res = await fetch(`https://viacep.com.br/ws/${cepAlterado}/json/`)
         .then((res) => res.json())
         .catch((err) => console.log(err));
 
