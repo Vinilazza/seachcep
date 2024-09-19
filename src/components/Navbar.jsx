@@ -17,14 +17,6 @@ const Navbar = () => {
             Inicio
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to={"/about"}
-            className={({ isActive }) => (isActive ? styles.active : "")}
-          >
-            Sobre
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );
